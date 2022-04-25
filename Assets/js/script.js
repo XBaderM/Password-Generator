@@ -1,34 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWYZ";
+let lowercase = "abcdefghijklmnopqrstuvwyz";
+let numbers = "0123456789";
+//let special = "!/"£$%^&*()_-=  "
+let arrays=[];
 
 
-// console.log(length);
-// console.log(passwordlength);
-// function generatePassword(){
-
-//   function askQuestion() {
-//     var choice1 = prompt("a question").toLowerCase;
-//     if (choice1 === option) {
-//          alert("Something");
-//     } else {
-//          alert("that's not possible");
-//          //go back to the original prompt
-//          askQuestion();
-//     }
-// }
-
- 
-
-// }
-
-// // Write password to the #password input
-function writePassword() {
+function wordlength() {
   let passwordlength = prompt("pleater number between 8 - 128");
   if(passwordlength < 8 || passwordlength > 128 || passwordlength === ""){
     
     alert("password either to short or too high");
+    wordlength();
   }else if(isNaN(passwordlength)){
     alert("please enter numbers");
+    wordlength();
   }else{
     let foo = parseInt(passwordlength);
     // console.log(foo);
@@ -36,64 +23,52 @@ function writePassword() {
   }
 }
 
-// function criteria(){
-// //  let capital = prompt("would you like to include capital yes or no")
-// //  if(capital === "yes"){
-// //    console.log(capital)
-// //  }
+function criteria(){
 
-//       // let capitals = confirm("would you like capitals");
-//       // if (capitals== true){
-//       //   console.log("you pressed ok");
-//       // }else{
-//       // console.log ("you canceled");
-//       // }
+  let capitals = confirm("would you like Uppercase");
+        if (capitals== true){
+          console.log("you pressed ok");
+          arrays.push(uppercase);
+          console.log(arrays);
+        }else{
+        console.log ("you canceled");
+        }
+      
 
-//       // let lowerCase = confirm("would you like lowercase");
-//       // if (lowerCase == true){
-//       //   console.log("you pressed ok");
-//       // }else{
-//       // console.log ("you canceled");
-//       // }
+      let lower = confirm("would you like lowercase");
+      if (lower == true){
+        console.log("you pressed ok");
+        arrays.push(lowercase);
+        console.log(arrays);
+      }else{
+      console.log ("you canceled");
+      }
 
-//       // let specials = confirm("would you like special characters");
-//       // if (specials == true){
-//       //   console.log("you pressed ok");
-//       // }else{
-//       // console.log ("you canceled");
-//       // }
+      let numb = confirm("would you like numbers");
+      if (numb== true){
+        console.log("you pressed ok");
+        arrays.push(numbers)
+      }else{
+      console.log ("you canceled");
+      }
 
-//       // let numbers = confirm("would you like numbers");
-//       // if (numbers== true){
-//       //   console.log("you pressed ok");
-//       // }else{
-//       // console.log ("you canceled");
-//       // }
-// }
+      if(arrays.length === 0){
+        alert("you must have at least one criteria");
+        criteria();
+      }
 
-// criteria();
-writePassword();
+    }
 
-function generatePassword(){
-  
-}
-// var len = writePassword();
-// console.log(len);
-
-  // function check(numbers){
-  //   console.log(numbers)
-  // }
-  // var length = writePassword();
-
-  // var password = check(length)
-
-  // // let length = writePassword();
-  // // console.log(length);
-  
+      
+  function writePassword(){
+   var len = wordlength();
+   criteria();
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+
+  }
 
 
 

@@ -4,26 +4,31 @@ let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWYZ";
 let lowercase = "abcdefghijklmnopqrstuvwyz";
 let numbers = "0123456789";
 //let special = "!/"£$%^&*()_-=  "
-let arrays=[];
 
 
 function wordlength() {
   let passwordlength = prompt("pleater number between 8 - 128");
-  if(passwordlength < 8 || passwordlength > 128 || passwordlength === ""){
-    
+   if(passwordlength < 8 || passwordlength > 128 || passwordlength === "") {
     alert("password either to short or too high");
+    
     wordlength();
   }else if(isNaN(passwordlength)){
     alert("please enter numbers");
     wordlength();
   }else{
+    
+
     let foo = parseInt(passwordlength);
-    // console.log(foo);
     return foo;
-  }
+    console.log(foo);
+}
+  
+  
 }
 
 function criteria(){
+
+ let arrays = [];
 
   let capitals = confirm("would you like Uppercase");
         if (capitals== true){
@@ -56,14 +61,37 @@ function criteria(){
         alert("you must have at least one criteria");
         criteria();
       }
+      // let text = arrays.toString();
+      return arrays;
+      
+
+    }
+
+    function generatePassword(arrLen, numlen){
+      var text ="";
+      var numb = numlen;
+      var arrs = arrLen.join("");
+    
+      console.log(arrs)
+      
+      for(let i=0;  i < numb; i++){
+
+        text += arrs.charAt(Math.floor(Math.random()*arrs.length));
+        console.log(text);
+        
+
+      }
+      return text;
+      
 
     }
 
       
   function writePassword(){
    var len = wordlength();
-   criteria();
-  var password = generatePassword();
+   var ar = criteria();
+   console.log("the returnred array" + ar);
+  var password = generatePassword(ar, len);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;

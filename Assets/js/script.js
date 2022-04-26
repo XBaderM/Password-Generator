@@ -8,7 +8,7 @@ let special = "\!\"£$%^&*?()_[]"
 // function to count wordlength
 
 function wordlength() {
-  let passwordlength = prompt("pleater number between 8 - 128");
+  let passwordlength = prompt("please enter number between 8 - 128");
    if(passwordlength < 8 || passwordlength > 128 || passwordlength === "") {
     alert("password either to short or too high");
     
@@ -19,57 +19,46 @@ function wordlength() {
   }else{
     
 
-    let foo = parseInt(passwordlength); // convert string to int
-    return foo;
+    let toInteger = parseInt(passwordlength); // convert string to int
+    return toInteger;
 }
   
   
 }
 
-// 
+// criteria function 
 
 function criteria(){
 
- let arrays = [];
+ let arrays = []; // array reset
 
   let capitals = confirm("would you like Uppercase");
         if (capitals== true){
-          console.log("you pressed ok");
           arrays.push(uppercase);
-          console.log(arrays);
-        }else{
-        console.log ("you canceled");
         }
       
 
       let lower = confirm("would you like lowercase");
       if (lower == true){
-        console.log("you pressed ok");
         arrays.push(lowercase);
-        console.log(arrays);
-      }else{
-      console.log ("you canceled");
+        
       }
 
       let numb = confirm("would you like numbers");
       if (numb== true){
-        console.log("you pressed ok");
+
         arrays.push(numbers)
-      }else{
-      console.log ("you canceled");
       }
 
       let spe = confirm("would you like Special characters");
       if (spe == true){
-        console.log("you pressed ok");
+    
         arrays.push(special)
-      }else{
-      console.log ("you canceled");
       }
 
       if(arrays.length === 0){
         alert("you must have at least one criteria");
-        criteria();
+        criteria(); // if nothing is pushed
       }
       // let text = arrays.toString();
       return arrays;
@@ -77,16 +66,14 @@ function criteria(){
 
     }
 
-    function generatePassword(arrLen, numlen){
+    function generatePassword(arrayLength, numLength){ // take parametrs to convert
       var text ="";
-      var numb = numlen;
-      var arrs = arrLen.join("");
-    
-      console.log(arrs)
+      var toNumb = numLength;
+      var toArrs = arrayLength.join(""); // convert to string without commas
       
-      for(let i=0;  i < numb; i++){
+      for(let i=0;  i < toNumb; i++){
 
-        text += arrs.charAt(Math.floor(Math.random()*arrs.length));
+        text += toArrs.charAt(Math.floor(Math.random()*toArrs.length));
         console.log(text);
         
 

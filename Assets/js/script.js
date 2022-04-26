@@ -32,13 +32,13 @@ function criteria(){
 
  let arrays = []; // array reset
 
-  let capitals = confirm("would you like Uppercase");
+  let capitals = confirm("would you like Uppercase characters");
         if (capitals== true){
           arrays.push(uppercase);
         }
       
 
-      let lower = confirm("would you like lowercase");
+      let lower = confirm("would you like lowercase characters");
       if (lower == true){
         arrays.push(lowercase);
         
@@ -60,7 +60,6 @@ function criteria(){
         alert("you must have at least one criteria");
         criteria(); // if nothing is pushed
       }
-      // let text = arrays.toString();
       return arrays;
       
 
@@ -85,10 +84,9 @@ function criteria(){
 
       
   function writePassword(){
-   var len = wordlength();
-   var ar = criteria();
-   console.log("the returnred array" + ar);
-  var password = generatePassword(ar, len);
+   var noWords = wordlength();
+   var orderList = criteria();
+  var password = generatePassword(orderList, noWords);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;

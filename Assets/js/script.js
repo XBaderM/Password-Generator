@@ -3,8 +3,9 @@ var generateBtn = document.querySelector("#generate");
 let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWYZ";
 let lowercase = "abcdefghijklmnopqrstuvwyz";
 let numbers = "0123456789";
-//let special = "!/"£$%^&*()_-=  "
+let special = "\!\"£$%^&*?()_[]"
 
+// function to count wordlength
 
 function wordlength() {
   let passwordlength = prompt("pleater number between 8 - 128");
@@ -12,19 +13,20 @@ function wordlength() {
     alert("password either to short or too high");
     
     wordlength();
-  }else if(isNaN(passwordlength)){
-    alert("please enter numbers");
+  }else if(isNaN(passwordlength)){ // check if letters pressed instead numbers
+    alert("please enter numbers"); 
     wordlength();
   }else{
     
 
-    let foo = parseInt(passwordlength);
+    let foo = parseInt(passwordlength); // convert string to int
     return foo;
-    console.log(foo);
 }
   
   
 }
+
+// 
 
 function criteria(){
 
@@ -53,6 +55,14 @@ function criteria(){
       if (numb== true){
         console.log("you pressed ok");
         arrays.push(numbers)
+      }else{
+      console.log ("you canceled");
+      }
+
+      let spe = confirm("would you like Special characters");
+      if (spe == true){
+        console.log("you pressed ok");
+        arrays.push(special)
       }else{
       console.log ("you canceled");
       }
